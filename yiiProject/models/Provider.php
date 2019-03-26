@@ -30,7 +30,6 @@ class Provider extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['rating'], 'required'],
             [['rating'], 'number'],
             [['name', 'site'], 'string', 'max' => 255],
         ];

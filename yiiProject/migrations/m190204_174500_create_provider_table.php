@@ -12,11 +12,11 @@ class m190204_174500_create_provider_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('{{%provider}}', [
+        $this->createTable('provider', [
             'id' => $this->primaryKey(),
             'name' => $this->string(),
             'site' => $this->string(),
-            'rating' => $this->float(),
+            'rating' => $this->float()->notNull(),
         ]);
     }
 
@@ -25,6 +25,6 @@ class m190204_174500_create_provider_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%provider}}');
+        $this->dropTable('provider');
     }
 }

@@ -31,7 +31,7 @@ class Car extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['provider_id', 'power', 'max_speed'], 'required'],
+            [['provider_id'], 'required'],
             [['provider_id', 'power', 'max_speed'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['provider_id'], 'exist', 'skipOnError' => true, 'targetClass' => Provider::className(), 'targetAttribute' => ['provider_id' => 'id']],
