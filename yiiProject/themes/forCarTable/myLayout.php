@@ -47,8 +47,25 @@ $bundle = $this->getAssetManager()->getBundle('app\assets\MyAsset');
 										<li ><?= Html::a('Cars', ['/cars']) ?></li>
 										<li><?= Html::a('Providers', ['/providers']) ?></li>
 									</ul>
-								</li>
+                </li>
+                <?if (Yii::$app->user->isGuest):?>
+
 								<li><?= Html::a('Login', ['/login']) ?></li>
+
+                <?else:?>
+
+                  <li class="has-dropdown active">
+                  <?= Html::a(Yii::$app->user->identity->username) ?>
+                    <ul class="dropdown">
+                      <li ><?php 
+                        echo Html::beginForm(['/logout'], 'post');
+                        echo Html::submitButton('Logout');
+                        echo Html::endForm()
+                      ?></li>
+                    </ul>
+                  </li>
+
+                <?endif;?>
 							</ul>
 						</div>
 					</div>

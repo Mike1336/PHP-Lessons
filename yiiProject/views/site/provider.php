@@ -8,9 +8,13 @@ $this->title = "$table table";
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <h1><?= 'Таблица "'.Html::encode($table).'"' ?></h1>
-    <p>
+<? if (!Yii::$app->user->isGuest) : ?>
+
+<p>
         <?= Html::a('Редактировать таблицу', ['/'.strtolower($table).'-edit'], ['class' => 'btn btn-primary']) ?>
     </p>
+
+<? endif; ?>
     <div class="table100 ver4 m-b-110">
         <div class="table100-head">
             <table>
